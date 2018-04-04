@@ -1,0 +1,23 @@
+
+  <mat-card class="pitt-card">
+    <mat-card-header>
+      <div mat-card-avatar class="pitt-header-image"></div>
+      <mat-card-title>City of Pittsburgh</mat-card-title>
+      <mat-card-subtitle>SpeedIn Project</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://s3.amazonaws.com/crowdriff-media/full/f94b0f28e2a09b0ae7581779a1f79a02e86985ad2cf10e2e4fd737beb2a73377.jpg" alt="Photo of Pittsburgh">
+    <mat-card-content>
+      <p>
+        Internet Speed Test(IST) is a public benefit project designed to help all residents of the city test their network speed
+      </p>
+      <p>The purpose of this project is enhancing urban infrastructure services</p>
+    </mat-card-content>
+    <mat-card-actions class="button-row">
+      <button mat-raised-button color="primary" (click)="clickTest()">Test your speed</button>
+      <button mat-raised-button color="accent" (click)="clickView()">View City speed</button>
+      <button mat-raised-button (click)="clickOther()">Don't have internet?</button>
+    </mat-card-actions>
+  </mat-card>
+
+
+

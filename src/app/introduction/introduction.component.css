@@ -1,0 +1,17 @@
+
+.pitt-card {
+  width:600px;
+  left: 50%;
+  margin-left:-300px;
+  position: absolute;
+}
+
+.pitt-header-image {
+  background-image: url('http://pittsburghpa.gov/images/logo.png');
+  background-size: cover;
+}
+
+.button-row{
+  text-align: center;
+  /*float: left;*/
+}
