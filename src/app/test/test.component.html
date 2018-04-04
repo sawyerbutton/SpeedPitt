@@ -1,1 +1,42 @@
-
+<mat-card class="pitt-card">
+  <mat-card-content>
+    <p class="card-p">
+     Please follow the select option to do the test
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <form>
+      <mat-form-field class="select-part">
+        <mat-select placeholder="Where are you testing?" [(ngModel)]="selected" name="place">
+          <mat-option *ngFor="let choice of choices" [value]="choice.value">
+            {{choice.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="select-part" *ngIf="selected === 'Home'">
+        <mat-select placeholder="What is your Internet Service Provider?" [(ngModel)]="isp" name="place">
+          <mat-option *ngFor="let i of isps" [value]="i.value">
+            {{i.value}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="select-part">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi="true" #picker></mat-datepicker>
+      </mat-form-field>
+    </form>
+    <div class="button-part">
+      <button mat-fab color="primary" (click)="turnOn()">Test</button>
+    </div>
+    <br>
+    <br>
+    <div class="spinner-part">
+      <mat-progress-spinner [color]="color" [mode]="mode" [value]="value" *ngIf="start">
+      </mat-progress-spinner>
+    </div>
+    <br>
+    <br>
+    <mat-progress-bar [mode]="mode"></mat-progress-bar>
+  </mat-card-actions>
+</mat-card>

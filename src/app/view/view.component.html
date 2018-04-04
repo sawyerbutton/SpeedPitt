@@ -1,0 +1,69 @@
+<div class="view-part">
+  <mat-card class="map-part">
+    <mat-card-header>
+      <div mat-card-avatar class="pitt-header-image"></div>
+      <mat-card-title>Pittsburgh Internet Speed</mat-card-title>
+      <mat-card-subtitle>SpeedIn Project</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <agm-map [latitude]="lat" [longitude]="lng">
+        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      </agm-map>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="map-sidePart">
+    <mat-card-header>
+      <div mat-card-avatar class="pitt-header-image"></div>
+      <mat-card-title>Pittsburgh Internet Speed</mat-card-title>
+      <mat-card-subtitle>Map Controller</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field class="controller-part">
+          <mat-select placeholder="Definition of area"  name="place">
+            <mat-option *ngFor="let area of areas" [value]="area.value">
+              {{area.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="controller-part">
+          <mat-select placeholder="Internet Service provider" name="place">
+            <mat-option *ngFor="let i of isps" [value]="i.value">
+              {{i.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="controller-part">
+          <mat-select placeholder="The way of Internet" name="place">
+            <mat-option *ngFor="let way of ways" [value]="way.value">
+              {{way.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="date-part">
+          <input matInput [matDatepicker]="pickerStart" placeholder="Choose a start date">
+          <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+          <mat-datepicker #pickerStart startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="date-part">
+          <input matInput [matDatepicker]="pickerEnd" placeholder="Choose a end date">
+          <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+          <mat-datepicker #pickerEnd startView="year" [startAt]="endDate"></mat-datepicker>
+        </mat-form-field>
+      </form>
+
+      <div class="button-part">
+        <button mat-raised-button color="primary" (click)="turnOn()">View</button>
+      </div>
+      <br>
+      <br>
+      <div class="spinner-part">
+        <mat-progress-bar [mode]="mode"></mat-progress-bar>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

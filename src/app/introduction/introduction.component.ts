@@ -20,11 +20,11 @@ export class IntroductionComponent implements OnInit {
   }
 
   clickView(){
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('view');
   }
 
   clickOther(){
-    this.router.navigateByUrl('');
+    this.router.navigateByUrl('questionnaire');
   }
 
 }

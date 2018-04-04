@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { IntroductionComponent } from './introduction/introduction.component'
 import {TestComponent} from './test/test.component';
+import {QuestionnaireComponent} from './questionnaire/questionnaire.component';
+import {ViewComponent} from './view/view.component';
 
 export const appRoutes = [
   {
@@ -18,9 +20,14 @@ export const appRoutes = [
     path:'test',
     component:TestComponent
   },
-  // {
-  //   path:'view',
-  // }
+  {
+    path:'questionnaire',
+    component:QuestionnaireComponent
+  },
+  {
+    path:'view',
+    component:ViewComponent
+  }
 ]
 
 @NgModule({

@@ -12,16 +12,6 @@
   font-style: italic;
 }
 
-.select-part{
-  width:50%;
-  margin-left: 25%;
-}
-
-
-.button-part{
- text-align: center;
-}
-
-.spinner-part{
-  margin-left: 42%;
+.input-part{
+  width: 100%;
 }

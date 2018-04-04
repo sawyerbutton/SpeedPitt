@@ -1,0 +1,58 @@
+<mat-card class="pitt-card">
+  <mat-card-content>
+    <p class="card-p">
+      Please follow the step to finish the question.
+    </p>
+    <br>
+    <p>This will help City of Pittsburgh improve our city service</p>
+    <mat-vertical-stepper [linear]="isLinear" #stepper="matVerticalStepper">
+      <mat-step [stepControl]="firstFormGroup">
+        <form [formGroup]="firstFormGroup">
+          <ng-template matStepLabel>Fill out your name</ng-template>
+          <mat-form-field class="input-part">
+            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" required>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperNext color="primary">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step [stepControl]="secondFormGroup">
+        <form [formGroup]="secondFormGroup">
+          <ng-template matStepLabel>Fill out your address</ng-template>
+          <mat-form-field class="input-part">
+            <input matInput placeholder="Address" formControlName="addressOne" required>
+          </mat-form-field>
+          <mat-form-field class="input-part">
+            <input matInput placeholder="Address(Optional)" formControlName="addressTwo">
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="City" formControlName="city" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="State" formControlName="state" required>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Zipcode" formControlName="zipCode" required>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button matStepperPrevious color="accent">Back</button>
+            <button mat-raised-button matStepperNext color="primary">Next</button>
+          </div>
+        </form>
+      </mat-step>
+      <mat-step>
+        <ng-template matStepLabel>Done</ng-template>
+        You are now done. Thanks for helping the city.
+        <br>
+        <br>
+        <div>
+          <button mat-raised-button matStepperPrevious color="accent">Back</button>
+          <button mat-raised-button (click)="stepper.reset()" color="primary">Reset</button>
+          <button mat-raised-button color="warn" (click)="submit()">Submit</button>
+        </div>
+      </mat-step>
+    </mat-vertical-stepper>
+  </mat-card-content>
+</mat-card>
+

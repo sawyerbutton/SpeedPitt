@@ -1,0 +1,31 @@
+.view-part{
+  /*float: left;*/
+  width: 100%;
+}
+
+.pitt-header-image {
+  background-image: url('http://pittsburghpa.gov/images/logo.png');
+  background-size: cover;
+}
+
+.map-part{
+  width:60%;
+  float: left;
+
+}
+.map-sidePart{
+  margin-left: 30px;
+  width:30%;
+  float: left;
+}
+agm-map {
+  height: 400px;
+}
+
+.controller-part{
+  width: 100%;
+}
+
+.date-part{
+  width:40%;
+}
