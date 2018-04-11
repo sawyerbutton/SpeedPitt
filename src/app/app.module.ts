@@ -12,6 +12,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatStepperModule} from '@angular/material/stepper';
+import {MatIconModule} from '@angular/material/icon';
 //import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatNativeDateModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
@@ -23,6 +24,7 @@ import { IntroductionComponent } from './introduction/introduction.component';
 import { TestComponent } from './test/test.component';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { ViewComponent } from './view/view.component';
+import { HeaderComponent } from './header/header.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { ViewComponent } from './view/view.component';
     IntroductionComponent,
     TestComponent,
     QuestionnaireComponent,
-    ViewComponent
+    ViewComponent,
+    HeaderComponent
   ],
   imports: [
     AppRoutingModule,
@@ -51,7 +54,8 @@ import { ViewComponent } from './view/view.component';
     MatInputModule,
     MatProgressSpinnerModule,
     MatProgressBarModule,
-    MatStepperModule
+    MatStepperModule,
+    MatIconModule
     //MatMomentDateModule
   ],
   providers: [],

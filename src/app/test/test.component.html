@@ -1,3 +1,4 @@
+<app-header></app-header>
 <mat-card class="pitt-card">
   <mat-card-content>
     <p class="card-p">
@@ -14,16 +15,14 @@
         </mat-select>
       </mat-form-field>
       <mat-form-field class="select-part" *ngIf="selected === 'Home'">
-        <mat-select placeholder="What is your Internet Service Provider?" [(ngModel)]="isp" name="place">
-          <mat-option *ngFor="let i of isps" [value]="i.value">
-            {{i.value}}
-          </mat-option>
+        <mat-select placeholder='Internet Service Provider' [formControl]="providerControl">
+          <mat-option>-- None --</mat-option>
+          <mat-optgroup *ngFor="let group of isps" [label]="group.name">
+            <mat-option *ngFor="let provider of group.provider" [value]="provider.value">
+              {{ provider.value }}
+            </mat-option>
+          </mat-optgroup>
         </mat-select>
-      </mat-form-field>
-      <mat-form-field class="select-part">
-        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker touchUi="true" #picker></mat-datepicker>
       </mat-form-field>
     </form>
     <div class="button-part">

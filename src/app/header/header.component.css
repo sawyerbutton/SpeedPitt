@@ -1,0 +1,11 @@
+.left-nav{
+  float: right;
+  padding-right: 100px;
+  width: 30%;
+}
+
+.header-right{
+  color: #3f51b5;
+  wdith: 100%;
+  height: 5%;
+}

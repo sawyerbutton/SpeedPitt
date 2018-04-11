@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {FormControl} from '@angular/forms';
 @Component({
   selector: 'app-view',
   templateUrl: './view.component.html',
@@ -13,11 +13,40 @@ export class ViewComponent implements OnInit {
     {value:'zipcode'},
     {value:'block area'}
   ];
+  providerControl = new FormControl();
   public isps = [
-    {value:'ATT'},
-    {value:'T-Mobile'},
-    {value:'Sprint'},
-    {value:'Xfinity'}
+    {
+      name:'Residential',
+      provider:[
+        {value:'Consolidated'},
+        {value:'windstream'},
+        {value:'Version'},
+        {value:'Xfinity'},
+        {value:'Fios'},
+      ]
+    },
+    {
+      name:'Business',
+      provider:[
+        {value:'Comcast Business'},
+        {value:'MegaPath'},
+        {value:'Crown Castle'},
+        {value:'Level3'},
+        {value:'gtt'},
+        {value:'DQE Communication'},
+        {value:'XO Communication'},
+        {value:'Full Service'},
+      ]
+    },
+    {
+      name:'Mobile',
+      provider:[
+        {value:'AT&T'},
+        {value:'cricket'},
+        {value:'Sprint'},
+        {value:'T-Mobile'}
+      ]
+    },
   ];
   public ways = [
     {value:'Upload'},
