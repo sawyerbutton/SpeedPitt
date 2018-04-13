@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AgmCoreModule} from "@agm/core";
+import { HttpClientModule }    from '@angular/common/http';
 //material module
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
@@ -13,6 +14,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatStepperModule} from '@angular/material/stepper';
 import {MatIconModule} from '@angular/material/icon';
+import {MatChipsModule} from '@angular/material/chips';
+import {MatTableModule} from '@angular/material/table';
 //import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatNativeDateModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
@@ -26,6 +29,9 @@ import { QuestionnaireComponent } from './questionnaire/questionnaire.component'
 import { ViewComponent } from './view/view.component';
 import { HeaderComponent } from './header/header.component';
 
+//services
+import { QuestionnaireService } from './questionnaire/questionnaire.service'
+import { question} from './questionnaire/question';
 
 @NgModule({
   declarations: [
@@ -39,6 +45,7 @@ import { HeaderComponent } from './header/header.component';
   imports: [
     AppRoutingModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     FormsModule,
     MatButtonModule,
     RouterModule,
@@ -55,10 +62,12 @@ import { HeaderComponent } from './header/header.component';
     MatProgressSpinnerModule,
     MatProgressBarModule,
     MatStepperModule,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule,
+    MatTableModule
     //MatMomentDateModule
   ],
-  providers: [],
+  providers: [QuestionnaireService,question],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

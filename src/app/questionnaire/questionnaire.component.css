@@ -1,7 +1,7 @@
 .pitt-card {
-  width:600px;
+  width:1000px;
   left: 50%;
-  margin-left:-300px;
+  margin-left:-500px;
   position: absolute;
   margin-top: 5%;
 }
@@ -15,4 +15,12 @@
 
 .input-part{
   width: 100%;
+}
+
+
+.table-container{
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
 }

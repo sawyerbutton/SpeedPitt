@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { QuestionnaireService } from './questionnaire.service';
+import { question } from './question';
 
 @Component({
   selector: 'app-questionnaire',
@@ -12,10 +14,15 @@ export class QuestionnaireComponent implements OnInit {
   public isLinear:boolean = true;
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
+  displayedColumns = ['name','address1','address2','state','city','zipcode'];
+
+  questions: question[] = [];
 
   constructor(
     private _formBuilder: FormBuilder,
-    private router:Router
+    private router:Router,
+    private questionService: QuestionnaireService,
+    public q : question
   ) { }
 
   ngOnInit() {
@@ -29,10 +36,21 @@ export class QuestionnaireComponent implements OnInit {
       state:['',Validators.required],
       zipCode:['',Validators.required]
     });
+
+    this.viewAll();
   }
 
   public submit(){
-    this.router.navigateByUrl('/')
+    this.questionService.addData(this.q)
+      .subscribe();
   }
 
+  public viewAll(){
+    this.questionService.getAllData().subscribe(ques=>this.questions = ques);
+    console.log(this.questions);
+  }
+
+  public return(){
+    this.router.navigateByUrl('');
+  }
 }
