@@ -12,7 +12,7 @@ export class QuestionnaireService{
     private http: HttpClient,
   ){}
 
-  private url = 'http://localhost:3000/users';
+  private url = 'http://localhost:3000/questionnaire';
 
   getAllData (): Observable<question[]> {
     return this.http.get<question[]>(this.url);
