@@ -6,13 +6,26 @@
       <mat-card-title>Pittsburgh Internet Speed</mat-card-title>
       <mat-card-subtitle>SpeedIn Project</mat-card-subtitle>
     </mat-card-header>
+
     <mat-card-content>
-      <agm-map [latitude]="lat" [longitude]="lng">
-        <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false">
+        <div *ngIf="startShow">
+          <agm-marker
+            *ngFor="let marker of markers"
+            [latitude]="marker.lat"
+            [longitude]="marker.lon"
+          >
+          <agm-info-window>
+            <strong>Download: {{marker.download}}<br>Upload: {{marker.upload}}<br>ISP: {{marker.isp}}</strong>
+          </agm-info-window>
+
+          </agm-marker>
+        </div>
       </agm-map>
     </mat-card-content>
   </mat-card>
 
+  <!--nav bar-->
   <mat-card class="map-sidePart">
     <mat-card-header>
       <div mat-card-avatar class="pitt-header-image"></div>

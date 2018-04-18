@@ -26,3 +26,10 @@
 .spinner-part{
   margin-left: 42%;
 }
+
+.chip-list{
+  /*padding-left: 50px;*/
+  width: 100%;
+  margin-left: 10%;
+  float: left;
+}

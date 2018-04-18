@@ -32,6 +32,10 @@ import { HeaderComponent } from './header/header.component';
 //services
 import { QuestionnaireService } from './questionnaire/questionnaire.service'
 import { question} from './questionnaire/question';
+import { TestService} from './test/test.service';
+import {Test} from './test/test';
+import {ViewService} from './view/view.service';
+import {Marker} from './view/view'
 
 @NgModule({
   declarations: [
@@ -67,7 +71,7 @@ import { question} from './questionnaire/question';
     MatTableModule
     //MatMomentDateModule
   ],
-  providers: [QuestionnaireService,question],
+  providers: [QuestionnaireService,question,TestService,Test,ViewService,Marker],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

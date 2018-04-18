@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
+import { Test} from './test';
+import { TestService} from './test.service';
+
 @Component({
   selector: 'app-test',
   templateUrl: './test.component.html',
@@ -50,16 +53,41 @@ export class TestComponent implements OnInit {
 
   public color = 'primary';
   public mode = 'determinate';
-  public value = 20;
-  public start = false;
-  constructor() { }
+  // public value = 20;
+  // public start = false;
+  public testResult :Test;
+  public resultShow = false;
+  public spinnerStart = false;
+
+  constructor(
+    private testService: TestService,
+    public test: Test
+  ) { }
 
   ngOnInit() {
+    // this.turnOn();
   }
   public turnOn(){
     this.mode = 'indeterminate';
-    this.start = true;
+    this.spinnerStart = true;
+    this.resultShow = false;
+    this.testSpeed();
   }
+
+  public async testSpeed(){
+    await this.testService.addData(this.test).subscribe(testR=>{
+      this.testResult = testR;
+      this.spinnerStart = false;
+      this.mode = 'determinate';
+      this.showResult();
+    });
+
+  }
+
+  public showResult(){
+    this.resultShow = true;
+  }
+
 
 
 }

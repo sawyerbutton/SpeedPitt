@@ -16,7 +16,6 @@ export class QuestionnaireService{
 
   getAllData (): Observable<question[]> {
     return this.http.get<question[]>(this.url);
-
   }
 
   addData(q:question) : Observable<question>{
