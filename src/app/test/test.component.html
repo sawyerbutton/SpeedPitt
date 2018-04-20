@@ -2,42 +2,21 @@
 <mat-card class="pitt-card">
   <mat-card-content>
     <p class="card-p">
-     Please follow the select option to do the test
+     Please click the test button to start your test
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <form>
-      <mat-form-field class="select-part">
-        <mat-select placeholder="Where are you testing?" [(ngModel)]="selected" name="place">
-          <mat-option *ngFor="let choice of choices" [value]="choice.value">
-            {{choice.value}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <mat-form-field class="select-part" *ngIf="selected === 'Home'">
-        <mat-select placeholder='Internet Service Provider' [formControl]="providerControl">
-          <mat-option>-- None --</mat-option>
-          <mat-optgroup *ngFor="let group of isps" [label]="group.name">
-            <mat-option *ngFor="let provider of group.provider" [value]="provider.value">
-              {{ provider.value }}
-            </mat-option>
-          </mat-optgroup>
-        </mat-select>
-      </mat-form-field>
-    </form>
     <div class="button-part">
       <button mat-fab color="primary" (click)="turnOn()">Test</button>
     </div>
     <br>
     <br>
     <div class="spinner-part" *ngIf="spinnerStart">
-      <mat-progress-spinner [color]="color" [mode]="mode">
-      </mat-progress-spinner>
+      <!--<mat-progress-spinner [color]="color" [mode]="mode">-->
+      <!--</mat-progress-spinner>-->
+      <span matTooltip="Using SpeedTest.net to test" style="margin-left: 12%;font-style: italic;color:#3f51b5;">Please wait, Test may take 5-10 seconds</span>
+      <mat-progress-bar mode="buffer"></mat-progress-bar>
     </div>
-      <!--<mat-progress-spinner [color]="color" [mode]="mode" [value]="testResult.download">-->
-      <!--</mat-progress-spinner>-->
-      <!--<mat-progress-spinner [color]="color" [mode]="mode" [value]="testResult.upload">-->
-      <!--</mat-progress-spinner>-->
       <mat-chip-list class="chip-list"*ngIf="resultShow">
         <mat-chip color="primary" selected="true">Download: {{testResult.download}}Mbps</mat-chip>
         <mat-chip color="primary" selected="true">Upload: {{testResult.upload}}Mbps</mat-chip>

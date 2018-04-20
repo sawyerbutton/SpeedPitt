@@ -7,17 +7,6 @@
     <br>
     <p>This will help City of Pittsburgh improve our city service</p>
     <mat-vertical-stepper [linear]="isLinear" #stepper="matVerticalStepper">
-      <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Fill out your name</ng-template>
-          <mat-form-field class="input-part">
-            <input matInput placeholder="Last name, First name" formControlName="firstCtrl" [(ngModel)]="q.name" required>
-          </mat-form-field>
-          <div>
-            <button mat-raised-button matStepperNext color="primary">Next</button>
-          </div>
-        </form>
-      </mat-step>
       <mat-step [stepControl]="secondFormGroup">
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Fill out your address</ng-template>
@@ -25,7 +14,7 @@
             <input matInput placeholder="Address" formControlName="addressOne" [(ngModel)]="q.address1"required>
           </mat-form-field>
           <mat-form-field class="input-part">
-            <input matInput placeholder="Address(Optional)" [(ngModel)]="q.address2" formControlName="addressTwo">
+            <input matInput placeholder="Number of individual in the household" [(ngModel)]="q.numberHousehold" formControlName="numberHousehold">
           </mat-form-field>
           <mat-form-field>
             <input matInput placeholder="City" formControlName="city" [(ngModel)]="q.city" required>
@@ -45,12 +34,12 @@
       <mat-step>
         <ng-template matStepLabel>Done</ng-template>
         <mat-chip-list>
-          <mat-chip>{{q.name}}</mat-chip>
-          <mat-chip>{{q.address1}}</mat-chip>
-          <mat-chip>{{q.address2}}</mat-chip>
-          <mat-chip>{{q.city}}</mat-chip>
-          <mat-chip>{{q.state}}</mat-chip>
-          <mat-chip>{{q.zipcode}}</mat-chip>
+          <!--<mat-chip>{{q.name}}</mat-chip>-->
+          <mat-chip>Address: {{q.address1}}</mat-chip>
+          <mat-chip>Household Number: {{q.numberHousehold}}</mat-chip>
+          <mat-chip>City: {{q.city}}</mat-chip>
+          <mat-chip>State: {{q.state}}</mat-chip>
+          <mat-chip>ZipCode: {{q.zipcode}}</mat-chip>
         </mat-chip-list>
         <br>
         You are now done. Thanks for helping the city.
@@ -60,56 +49,8 @@
           <button mat-raised-button matStepperPrevious color="accent">Back</button>
           <button mat-raised-button (click)="stepper.reset()" color="primary">Reset</button>
           <button mat-raised-button color="warn" (click)="submit()">Submit</button>
-          <button mat-raised-button matStepperNext (click)="viewAll()">View All and donate</button>
         </div>
       </mat-step>
-
-      <mat-step>
-        <div class="table-container">
-          <mat-table #table [dataSource]="questions">
-            <ng-container matColumnDef="name">
-              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-              <mat-cell *matCellDef="let question"> {{question.name}} </mat-cell>
-            </ng-container>
-
-            <!-- Name Column -->
-            <ng-container matColumnDef="address1">
-              <mat-header-cell *matHeaderCellDef> Address1 </mat-header-cell>
-              <mat-cell *matCellDef="let question"> {{question.address1}} </mat-cell>
-            </ng-container>
-
-            <!-- Weight Column -->
-            <ng-container matColumnDef="address2">
-              <mat-header-cell *matHeaderCellDef> Address2 </mat-header-cell>
-              <mat-cell *matCellDef="let question"> {{question.address2}} </mat-cell>
-            </ng-container>
-
-            <!-- Symbol Column -->
-            <ng-container matColumnDef="state">
-              <mat-header-cell *matHeaderCellDef> State </mat-header-cell>
-              <mat-cell *matCellDef="let question"> {{question.state}} </mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="city">
-              <mat-header-cell *matHeaderCellDef> City </mat-header-cell>
-              <mat-cell *matCellDef="let question"> {{question.city}} </mat-cell>
-            </ng-container>
-
-            <ng-container matColumnDef="zipcode">
-              <mat-header-cell *matHeaderCellDef> Zip code </mat-header-cell>
-              <mat-cell *matCellDef="let question"> {{question.zipcode}} </mat-cell>
-            </ng-container>
-
-            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-          </mat-table>
-        </div>
-        <br>
-        <div>
-          <button mat-raised-button matStepperPrevious color="accent" (click)="return()">Return to Homepage</button>
-        </div>
-      </mat-step>
-
     </mat-vertical-stepper>
   </mat-card-content>
 </mat-card>
