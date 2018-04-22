@@ -103,15 +103,15 @@ export class TestComponent implements OnInit {
 
   }
 
-  public async testSpeed(){
-    await this.testService.addData(this.test).subscribe(testR=>{
-      this.testResult = testR;
-      this.spinnerStart = false;
-      this.mode = 'determinate';
-      this.showResult();
-    });
-
-  }
+  // public async testSpeed(){
+  //   await this.testService.addData(this.test).subscribe(testR=>{
+  //     this.testResult = testR;
+  //     this.spinnerStart = false;
+  //     this.mode = 'determinate';
+  //     this.showResult();
+  //   });
+  //
+  // }
 
   public showResult(){
     this.resultShow = true;

@@ -37,9 +37,4 @@ export class TestService {
     return await {lon,lat,isp,ip};
   }
 
-  public async apiTest(){
-    await $.getJSON('https://www.broadbandmap.gov/broadbandmap/speedtest/pittsburgh?format=json',function (data) {
-      console.log(data);
-    })
-  }
 }
