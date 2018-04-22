@@ -1,8 +1,8 @@
 export class Test{
-  readonly download: number;
-  readonly upload: number;
-  readonly ip:string;
-  readonly lat: number;
-  readonly lon: number;
-  readonly isp:string;
+  download: string;
+  upload: string;
+  ip:string;
+  lat: string;
+  lon: string;
+  isp:string;
 }

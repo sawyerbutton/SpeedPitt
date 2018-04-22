@@ -14,16 +14,16 @@
     <div class="spinner-part" *ngIf="spinnerStart">
       <!--<mat-progress-spinner [color]="color" [mode]="mode">-->
       <!--</mat-progress-spinner>-->
-      <span matTooltip="Using SpeedTest.net to test" style="margin-left: 12%;font-style: italic;color:#3f51b5;">Please wait, Test may take 5-10 seconds</span>
+      <span matTooltip="Using SpeedTest.net to test" style="margin-left: 12%;font-style: italic;color:#3f51b5;">Please wait, Test may take seconds</span>
       <mat-progress-bar mode="buffer"></mat-progress-bar>
     </div>
       <mat-chip-list class="chip-list"*ngIf="resultShow">
-        <mat-chip color="primary" selected="true">Download: {{testResult.download}}Mbps</mat-chip>
-        <mat-chip color="primary" selected="true">Upload: {{testResult.upload}}Mbps</mat-chip>
+        <mat-chip color="primary" selected="true">Download: {{download}}Mbps</mat-chip>
+        <mat-chip color="primary" selected="true">Upload: {{upload}}Mbps</mat-chip>
         <!--<mat-chip>IP Address:{{testResult.ip}}</mat-chip>-->
         <!--<mat-chip>Latitude: {{testResult.lat}}</mat-chip>-->
         <!--<mat-chip>Longitude: {{testResult.lon}}</mat-chip>-->
-        <mat-chip color="accent" selected="true">ISP: {{testResult.isp}}</mat-chip>
+        <mat-chip color="accent" selected="true">ISP: {{isp}}</mat-chip>
       </mat-chip-list>
       <br>
     <br>

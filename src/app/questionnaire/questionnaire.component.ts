@@ -3,8 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { QuestionnaireService } from './questionnaire.service';
 import { question } from './question';
-declare var jquery:any;
-declare var $ :any;
+  declare var jquery:any;
+  declare var $ :any;
 
 @Component({
   selector: 'app-questionnaire',
@@ -46,7 +46,8 @@ export class QuestionnaireComponent implements OnInit {
   }
 
   public async helper(addrInfo){
-    console.log(addrInfo.ipAddress);
+    console.log(addrInfo);
+    // console.log(addrInfo.ipAddress);
     this.q.privateLocation = addrInfo.ipAddress;
     console.log(this.q);
     await this.questionService.addData(this.q)
