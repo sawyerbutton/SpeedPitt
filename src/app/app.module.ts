@@ -17,6 +17,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatChipsModule} from '@angular/material/chips';
 import {MatTableModule} from '@angular/material/table';
 import {MatTooltipModule} from '@angular/material/tooltip';
+import {MatRadioModule} from '@angular/material/radio';
 //import { MatMomentDateModule } from '@angular/material-moment-adapter';
 import {MatNativeDateModule} from '@angular/material';
 import {MatInputModule} from '@angular/material/input';
@@ -70,7 +71,8 @@ import {Marker} from './view/view'
     MatIconModule,
     MatChipsModule,
     MatTableModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatRadioModule
     //MatMomentDateModule
   ],
   providers: [QuestionnaireService,question,TestService,Test,ViewService,Marker],

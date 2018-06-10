@@ -31,18 +31,48 @@
           </div>
         </form>
       </mat-step>
+
+      <mat-step [stepControl]="firstFormGroup">
+          <ng-template matStepLabel>Please answer related questions below</ng-template>
+          <mat-radio-group [(ngModel)]="computerDevice">
+            <mat-radio-button class="example-radio-button" *ngFor="let choice of otherComputerDevice" [value]="choice.value">
+              {{choice.viewValue}}
+            </mat-radio-button>
+          </mat-radio-group>
+        <br>
+        <form [formGroup]="firstFormGroup">
+          <mat-form-field style="width:100%;">
+            <mat-select placeholder="Why do you not have internet" formControlName="firstCtrl" multiple [(value)]="reasonForNoInternet">
+              <mat-option *ngFor="let choice of notHaveInternet" [value]="choice">{{choice}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p>You selected: {{reasonForNoInternet}}</p>
+          <div>
+            <button mat-raised-button matStepperPrevious color="accent">Back</button>
+            <button mat-raised-button matStepperNext color="primary">Next</button>
+          </div>
+        </form>
+      </mat-step>
+
       <mat-step>
-        <ng-template matStepLabel>Done</ng-template>
+        <ng-template matStepLabel>Your Answers</ng-template>
         <mat-chip-list>
-          <!--<mat-chip>{{q.name}}</mat-chip>-->
-          <mat-chip>Address: {{q.address1}}</mat-chip>
-          <mat-chip>Household Number: {{q.numberHousehold}}</mat-chip>
-          <mat-chip>City: {{q.city}}</mat-chip>
-          <mat-chip>State: {{q.state}}</mat-chip>
-          <mat-chip>ZipCode: {{q.zipcode}}</mat-chip>
+          <mat-chip color="primary" selected="true">Address: {{q.address1}}</mat-chip>
+          <mat-chip color="primary" selected="true">Household Number: {{q.numberHousehold}}</mat-chip>
+          <mat-chip color="primary" selected="true">City: {{q.city}}</mat-chip>
         </mat-chip-list>
         <br>
-        You are now done. Thanks for helping the city.
+        <mat-chip-list>
+          <mat-chip color="primary" selected="true">State: {{q.state}}</mat-chip>
+          <mat-chip color="primary" selected="true">ZipCode: {{q.zipcode}}</mat-chip>
+          <mat-chip color="primary" selected="true">Own a computer device beyond a smart phone: {{computerDevice}}</mat-chip>
+        </mat-chip-list>
+        <br>
+        <mat-chip-list>
+          <mat-chip color="primary" selected="true">Why do you not have internet: {{reasonForNoInternet}}</mat-chip>
+        </mat-chip-list>
+        <br>
+        You current location is collected for no commercial purpose. Thanks for helping the city.
         <br>
         <br>
         <div>

@@ -5,4 +5,6 @@ export class question{
   city: string;
   zipcode: number;
   privateLocation:any;
+  computerDevice:boolean;
+  reasonNoInternet:string;
 }

@@ -17,7 +17,13 @@ export class QuestionnaireComponent implements OnInit {
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
   // displayedColumns = ['name','address1','numberHousehold','state','city','zipcode'];
-
+  public computerDevice:boolean;
+  otherComputerDevice = [
+    {viewValue:'Yes',value:true},
+    {viewValue:'No',value:false}
+  ];
+  public reasonForNoInternet:string;
+  public notHaveInternet = ['Cost','Do not have a device','Do not know how to use it','Do not want the internet','Only have a mobile'];
   // questions: question[] = [];
 
   constructor(
@@ -49,6 +55,8 @@ export class QuestionnaireComponent implements OnInit {
     console.log(addrInfo);
     // console.log(addrInfo.ipAddress);
     this.q.privateLocation = addrInfo.ipAddress;
+    this.q.reasonNoInternet = this.reasonForNoInternet;
+    this.q.computerDevice = this.computerDevice;
     console.log(this.q);
     await this.questionService.addData(this.q)
       .subscribe();

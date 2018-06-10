@@ -18,9 +18,13 @@
           <agm-info-window>
             <strong>Download: {{marker.download}}<br>Upload: {{marker.upload}}<br>ISP: {{marker.isp}}</strong>
           </agm-info-window>
-
           </agm-marker>
         </div>
+
+        <agm-polygon
+          [paths]="paths" fillColor = "pink" fillOpacity = 0.5
+        >
+        </agm-polygon>
       </agm-map>
     </mat-card-content>
   </mat-card>
